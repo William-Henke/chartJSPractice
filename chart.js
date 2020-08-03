@@ -31,16 +31,18 @@ var chart = new Chart(ctx, {
             label: 'My First dataset',
             backgroundColor: 'rgb(255, 99, 132)',
             borderColor: 'rgb(255, 99, 132)',
-            data: numberArray,
-            yAxes: "",
-            xAxes: 0
+            data: numberArray
         }]
     },
 
     // Configuration options go here
     options: {
-        tick {
-            
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
         }
     }
 });
