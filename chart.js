@@ -9,8 +9,8 @@ submit.addEventListener('click', createChart);
 
 function createChart(e) {
     e.preventDefault();
-    nameArray.push(nameInput);
-    numberArray.push(numberInput);
+    nameArray.push(nameInput.value);
+    numberArray.push(numberInput.value);
 
     if(nameArray.length >= 5 && numberArray.length >= 5) {
         document.getElementById('form').style.display = "none";
@@ -29,8 +29,8 @@ var chart = new Chart(ctx, {
         labels: nameArray,
         datasets: [{
             label: 'My First dataset',
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
+            backgroundColor: 'red)',
+            borderColor: 'red',
             data: numberArray
         }]
     },
@@ -41,8 +41,8 @@ var chart = new Chart(ctx, {
             yAxes: [{
                 ticks: {
                     beginAtZero: true
-                }
-            }]
-        }
-    }
+                },
+            }],
+        },
+    },
 });
