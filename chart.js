@@ -1,11 +1,13 @@
 let nameInput = document.getElementById('nameInput');
 let numberInput = document.getElementById('numberInput');
 let submit = document.getElementById('inputButton');
+let flowButton = document.getElementById('flowButton');
 
 const nameArray = [];
 const numberArray = [];
 
 submit.addEventListener('click', createChart);
+flowButton.addEventListener('click', nextPage);
 
 function createChart(e) {
     e.preventDefault();
@@ -15,6 +17,9 @@ function createChart(e) {
     if(nameArray.length >= 5 && numberArray.length >= 5) {
         document.getElementById('form').style.display = "none";
         document.getElementById('chart').style.display = "block";
+        document.getElementById('flowButton').style.display = "block";
+        localStorage.setItem('names', JSON.stringify(nameArray));
+        localStorage.setItem('numbers', JSON.stringify(numberArray));
     }
 
 }
@@ -46,3 +51,7 @@ var chart = new Chart(ctx, {
         },
     },
 });
+
+function nextPage() {
+    window.location.href = "chartLocalStorage.html";
+}
